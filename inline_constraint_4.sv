@@ -1,0 +1,23 @@
+// inline constraint with
+
+class pkt;
+  randc bit [7:0] addr;
+  
+  constraint addr_limiter{addr <= 8'h4; }
+endclass
+
+module tb;
+  pkt p1;
+  
+  initial begin
+    p1 = new();
+    repeat(3) begin
+      assert(p1.randomize with {addr >= 8'h2;}) else $display("FAIL");
+      $display("addr = %0h", p1.addr);
+    end
+  end
+  
+endmodule
+  
+  
+    
