@@ -1,5 +1,5 @@
 // inline constraint with
-
+/*The takeaway here is that constraints provided should not conflict with each other and in-line method of providing constraints does not override but instead is also considered along with the original by the solver.*/
 class pkt;
   randc bit [7:0] addr;
   
