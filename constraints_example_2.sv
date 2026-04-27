@@ -8,6 +8,8 @@ class pkt;
     a = new[15];
   endfunction
   
+  
+  // method-1
   constraint a_size{foreach(a[i]){
     if((i < 8)) {
       if(i%2 == 0) {
@@ -24,6 +26,12 @@ class pkt;
         }
   				}
   				}
+            
+   // method-2
+            constraint a_size_2{foreach(a[i]){ if((i%2 == 0) && i <8){ a[i] == i+1;} else if((i%2 == 1) && i<8){a[i] == (i+1)*11;}else {
+              a[i] == a[14-i];}
+            					}
+            				}
 endclass
           
 
